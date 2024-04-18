@@ -9,7 +9,7 @@ terraform {
 }
 ###  variable.tf ###
 variable "my_vpc_region" {
- default = "To server 1"
+ default = "My_Custom_network"
 }
 
 #####    provider.tf ###
