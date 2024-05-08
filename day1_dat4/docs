@@ -1,0 +1,30 @@
+terraform functions
+  terraform init
+    1. state backend initialize
+    2. download provider plugins
+    3. download modules
+============================
+  index([1,2,3,4,54,8],8)
+  length([1,2,3,4,54,8])
+  Numeric 
+    max,min  max(12,45,2,36)
+  String
+      endswith, startswith - bool startswith("my name is sumit"."sumit")
+      join & split ==> join("-",["ram","shyam","krishna"])   ==> split("-","ram-shyam-krishna")
+      lower & upper ===> lower("SUMIT")  ===> upper(""sumit")
+      replace   ===> replace("ram","shyam","krishna","ram","god")
+      strcontains  ===> strcontains("my name is sumit","my")   [word exists or not in string]
+
+  collection
+      contains ===> contains(["a","b","c"],"a")  true
+      elements ===> element(["ram","shyam","krishna"],2)  krishna
+      index    ===>
+      length   ===>
+      range    ===> range(30) OR range(1,4) [1 to 4 ] OR range(1,8,2) [2 skip]
+      keys     ===>  keys({a=1,b=2,c=4})
+      values   ===> values({a=1,b=2,c=4})
+      concat   ===> concates given multiple list items into one list concat([""ram","shyam"],["shyam","krishna"]) 
+  encoding
+  filesystem
+  date & time
+  hash & crypto
