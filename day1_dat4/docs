@@ -24,7 +24,20 @@ terraform functions
       keys     ===>  keys({a=1,b=2,c=4})
       values   ===> values({a=1,b=2,c=4})
       concat   ===> concates given multiple list items into one list concat([""ram","shyam"],["shyam","krishna"]) 
-  encoding
+      merge    ===> merge or concat given map key values into one map merge({a=1,b=2,c=4},{name="sumit"})
+                    output: will be be shown
+  encoding  (encode or decode)
+      base64encode("vijay") output: "dmlqYXk="    or echo vijay | base64   for decode echo "dmlqYXk" | base64 -d
+
   filesystem
-  date & time
+      abspath  ===> abspath(path.root)
+      dirname  ===> dirname("/users/vijay/Documents/notebook.docs")
+      basename  ===> basename("/users/vijay/Documents/notebook.docs")
+      file      ===> file("pemfile.pem")  [to read and print the file containts]
+      fileexists===>  fileexists(vijaykey)   [true or false]
+  date & time    ===> 
   hash & crypto
+  IP network
+    cidrhost
+    cidrsubnet
+    cidrnetmask
