@@ -1,0 +1,39 @@
+####      version.tf   ####
+terraform {
+  required_providers {
+    aws = {
+      source = "hashicorp/aws"
+      version = "~>5.38"
+    }
+  }
+}
+provider "aws" {
+  region = "us-west-2"
+}
+data "aws_ami" "ram" {
+  most_recent = true
+  filter {
+    name = "name"
+    values = ["ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*"]
+  }
+  owners = ["099720109477"]
+}
+locals {
+  devvm = {
+  vm_size = "t2.micro"
+  tag_name= "devvm"
+  }
+  prodvm = {
+  vm_size = "t2.micro"
+  tag_name= "prodvm"
+  }
+  vm_sizes = ["t2.micro","t2.small"]
+}
+resource "aws_instance" "ram" {
+  count = 2
+  ami = data.aws_ami.ram.id
+  instance_type = local.devvm.vm_size
+  tags = {
+    Name = local.devvm.tag_name
+  }
+}
