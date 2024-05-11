@@ -35,5 +35,7 @@ resource "aws_instance" "ram" {
   instance_type = local.devvm.vm_size
   tags = {
     Name = local.devvm.tag_name
+            //OR
+    Name= "${local.devvm.tag_name}-${count.index}"
   }
 }
